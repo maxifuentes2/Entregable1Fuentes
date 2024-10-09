@@ -1,14 +1,17 @@
 // variables y constantes que voy a usar
 let totalCuenta = parseFloat(prompt("¿Cuál es el total de la cuenta?"));
 let porcentajePropina = parseFloat(prompt("¿Qué porcentaje de propina deseas dejar? (ej. 15 para 15%)"));
-const IVA = 21; // constante para el iva en porcentaje 
+const IVA = 21; // constante para el IVA en porcentaje
 
-// calculo la propina con la funcion calcularPropina
+// array para almacenar las propinas posibles (5%, 10%, 15%)
+let posiblesPropinas = [];
+
+// calcula la propina con la función calcularPropina
 function calcularPropina(cuenta, porcentaje) {
     return (cuenta * (porcentaje / 100)).toFixed(2);
 }
 
-// calculo el total de iva y propina 
+// calcula el total con IVA y propina
 function calcularTotalConIVAyPropina(cuenta, propina) {
     let totalConIVA = cuenta * (1 + IVA / 100);
     return (parseFloat(totalConIVA) + parseFloat(propina)).toFixed(2);
@@ -22,18 +25,23 @@ function mostrarResultados(propina, totalConIVAyPropina) {
     alert("El total con IVA y propina incluida es: $" + totalConIVAyPropina);
 }
 
-// verifico si dieron un minimo de 5% de propina y si es menor a 5% arroja un mensaje al usuario indicandole que al menos debe dar 5% de propina
+// verifica si dieron un mínimo de 5% de propina y si es menor a 5% arroja un mensaje al usuario
 if (porcentajePropina < 5) {
     alert("Has seleccionado un porcentaje bajo. Te sugerimos dejar un mínimo del 5% de propina.");
 } else {
-    alert("Muchas gracias por su propina.");
+    alert("Es una cantidad considerable de propina.");
 }
 
-// muestra en la consola la propina de 5%, 10% y 15%
+// almacena en array y muestra en consola las posibles propinas
 console.log("Posibles porcentajes de propina:");
 for (let i = 5; i <= 15; i += 5) {
-    console.log(i + "% de propina sería: $" + calcularPropina(totalCuenta, i));
+    let propinaCalculada = calcularPropina(totalCuenta, i);
+    posiblesPropinas.push(propinaCalculada); // guarda la propina en el array
+    console.log(i + "% de propina sería: $" + propinaCalculada);
 }
+
+// muestra el contenido del array de propinas
+console.log("Propinas calculadas:", posiblesPropinas);
 
 // ejecuta las funciones
 let montoPropina = calcularPropina(totalCuenta, porcentajePropina);
