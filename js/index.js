@@ -21,8 +21,8 @@ function calcularTotalConIVAyPropina(cuenta, propina) {
 function mostrarResultados(propina, totalConIVAyPropina) {
     console.log("Monto de la propina: $" + propina);
     console.log("Total con IVA y propina: $" + totalConIVAyPropina);
-    alert("La propina que deberías dejar es: $" + propina);
-    alert("El total con IVA y propina incluida es: $" + totalConIVAyPropina);
+    alert("La propina que deberías dejar es: $" + propina + 
+        "\nEl total con IVA y propina incluida es: $" + totalConIVAyPropina);
 }
 
 // verifica si dieron un mínimo de 5% de propina y si es menor a 5% arroja un mensaje al usuario
@@ -34,7 +34,7 @@ if (porcentajePropina < 5) {
 
 // almacena en array y muestra en consola las posibles propinas
 console.log("Posibles porcentajes de propina:");
-for (let i = 5; i <= 15; i += 5) {
+for (let i = 5; i <= 100; i += 5) {
     let propinaCalculada = calcularPropina(totalCuenta, i);
     posiblesPropinas.push(propinaCalculada); // guarda la propina en el array
     console.log(i + "% de propina sería: $" + propinaCalculada);
