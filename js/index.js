@@ -22,7 +22,7 @@ function mostrarResultados(propina, totalConIVAyPropina) {
     console.log("Monto de la propina: $" + propina);
     console.log("Total con IVA y propina: $" + totalConIVAyPropina);
     alert("La propina que deberías dejar es: $" + propina + 
-        "\nEl total con IVA y propina incluida es: $" + totalConIVAyPropina);
+        "\nEl total con IVA (21%) y propina incluida es: $" + totalConIVAyPropina);
 }
 
 // verifica si dieron un mínimo de 5% de propina y si es menor a 5% arroja un mensaje al usuario
